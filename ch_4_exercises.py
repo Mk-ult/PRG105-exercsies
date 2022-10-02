@@ -67,12 +67,17 @@ print("=" * 10, "Section 4.5 sentinel value", "=" * 10)
 # a sentinel value of -1 is entered.
 # After the loop, display the total, the count, and the average (total / count)
 total_amount = 0
-numbers_entered = 0
-test_scores = int(input("Enter the test scores or enter -1 to end: "))
+count = 0
+numbers = int(input("Enter the test scores or enter -1 to end: "))
 
-while test_scores != -1:
-    test_scores += total_amount
-print(test_scores)
+while numbers != -1:
+    total_amount += numbers
+    count += 1
+    numbers = int(input("Enter a number (-1 to end): "))
+print(f"You entered {count} numbers.")
+print(f"The total of the numbers you entered is {total}.")
+if count > 0:
+    print(f"The average of your numbers is {total_amount / count}.")
 
 # TODO 4.6 validating data
 print("=" * 10, "Section 4.6 data validation loop", "=" * 10)
@@ -81,8 +86,7 @@ print("=" * 10, "Section 4.6 data validation loop", "=" * 10)
 # input until the user enters a valid number. Test with
 # both valid and invalid data.
 
-number = int(input("Enter a number between 1 and 10: "))
-
-while number < 1 or number > 10:
+user_number = int(input("Enter a number between 1 and 10: "))
+while user_number < 1 or user_number > 10:
     print("That is not a valid number")
     number = int(input("Enter a number between 1 and 10: "))
