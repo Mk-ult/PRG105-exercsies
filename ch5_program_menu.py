@@ -35,15 +35,15 @@ def main_menu():
     print("D. Classic baked Mac and Cheese")
     user_choice = input("Enter the letter of your choice: ")
 
-    if user_choice == "A":
+    if user_choice == "A" or user_choice == "a":
         choice_a()
-    elif user_choice == "B":
+    elif user_choice == "B" or user_choice == "b":
         choice_b()
-    elif user_choice == "C":
+    elif user_choice == "C" or user_choice == "c":
         choice_c()
-    elif user_choice == "D":
+    elif user_choice == "D" or user_choice == "d":
         choice_d()
-    elif user_choice == "E":
+    elif user_choice == "E" or user_choice == "e":
         choice_e()
     else:
         print("Invalid choice, try again")
