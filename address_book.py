@@ -9,7 +9,7 @@ def main():
 
     address_book = open("address_book.txt", "w")
 
-    for count in range(1, entries + 1):
+    for person in range(0, entries):
         name = input("What is the name of the person? ")
         phone_number = input("What is their phone number? ")
         email_address = input("What is their email address? ")
