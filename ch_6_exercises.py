@@ -61,10 +61,9 @@ counter = 0
 # 2) Write a for loop to read in all of the lines,
 # -- print each line on the screen,
 # -- also add 1 to counter for each line
-for state in states_file:
+for line in states_file:
+    print(line, end="")
     counter += 1
-    print(state)
-    print(counter)
 # 3) Close the file
 states_file.close()
 
@@ -97,10 +96,10 @@ print("=" * 10, "Section 6.4 exceptions", "=" * 10)
 
 # 1) Create a try statement
 try:
-# 2) Open the file superheros.txt for READING (we are not writing, it would create the file)
+    # 2) Open the file superheros.txt for READING (we are not writing, it would create the file)
     test_file = open('superheroes.txt', 'r')
 # 3) Close the file
     test_file.close()
 # 4) Create an except IOError, that uses a print statement to tell the user that the file doesn't exist
 except IOError:
-    print('This file does not exist')
+    print('%Error, This file does not exist')
