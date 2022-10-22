@@ -16,7 +16,7 @@ days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sun
 
 
 # 2) Create a list with 5 items, set them all to 0, use the Repetition Operator ( * )
-food_list = ["apple", "orange", "banana", "strawberry", "melon"] * 0
+food_list = [0]*5
 # 3) Print the contents of your days list using the for operator
 for day in days:
     print(day)
@@ -24,9 +24,8 @@ for day in days:
 print(days[5])
 # 5) Create a variable called size to hold the length of the list days using the len function
 size = len(days)
-print(size)
-# 6) Concatenate the two following lists together, storing the value in list3 - remove the """ """ to test
 
+# 6) Concatenate the two following lists together, storing the value in list3 - remove the """ """ to test
 
 list1 = [1, 3, 5, 7, 9]
 list2 = [2, 4, 6, 8, 10]
@@ -60,7 +59,7 @@ months.append("November")
 months.append("December")
 
 # 2) Get the index of "May" from the months list and print it on screen
-print(months[4])
+print(months.index("May"))
 # 3) Sort list3 from exercise 7.2 and print the results on screen
 list3.sort()
 print(list3)
@@ -82,10 +81,13 @@ print(months_of_the_year)
 # TODO 7.7 Processing lists
 print("=" * 10, "Section 7.7 processing lists", "=" * 10)
 # 1) Total the values in list3 and print the results
-print(sum(list3))
+total = 0
+for number in list3:
+    total += number
+print(total)
 # 2) Get the average of values in list3 and print the results
 average = sum(list3) / len(list3)
-print(average)
+print(f"The average of list3 is {average:.1f} ")
 # 3) Open the file states.txt in read mode,
 # -- read the contents of the file into the list states_list
 # -- print the contents of states_list on screen
@@ -130,6 +132,6 @@ print(days_in_month[3][1])
 # TODO 7.10 Tuples
 print("=" * 10, "Section 7.10 tuples", "=" * 10)
 # Create a tuple using the months list as its data source
-mytuple = tuple(months)
-print(mytuple)
-print(type(mytuple))
+monthstuple = tuple(months)
+print(monthstuple)
+print(type(monthstuple))
