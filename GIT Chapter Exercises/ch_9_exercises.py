@@ -11,19 +11,22 @@ import pickle
 # TODO 9.1 Dictionaries
 print("=" * 10, "Section 9.1 dictionaries", "=" * 10)
 # 1) Finish creating the following dictionary by adding three more people and birthdays
-birthdays = {'Meri': 'May 16', 'Kathy': 'July 14', 'John': 'December 12', 'Joe': 'January 1', 'Bob': 'February 2'}
+birthdays = {'Meri': 'May 16', 'Kathy': 'July 14'}
+birthdays['Bill'] = 'May 25'
+birthdays['Richard'] = 'August 14'
+birthdays['Marge'] = 'June 30'
 
 # 2) Use the key to retrieve and print Meri's Birthday
 print(birthdays['Meri'])
 # 3) Create an empty dictionary named registration
-registration = {}
+registration = []
 
 # You will use the following dictionary for many of the remaining exercises
 miles_ridden = {'June 1': 25, 'June 2': 20, 'June 3': 38, 'June 4': 12, 'June 5': 30, 'June 7': 25}
 
 # 1) Print the keys and the values of miles_ridden using a for loop
 for key in miles_ridden:
-    print(key, miles_ridden[key])
+    print(f"{miles_ridden[key]} miles ridden on {key}")
 
 # 2) Use the get() method to get the value for June 3 (replace the "")
 #    if not found, the result should be 'Entry not found'
@@ -43,8 +46,8 @@ print(miles_ridden.keys())
 miles_ridden.pop('June 4')
 print(miles_ridden)
 # 7) Use the items method to print the contents of the miles_ridden dictionary
-x = miles_ridden.items()
-print(x)
+for key, value in miles_ridden.items():
+    print(key, value)
 
 # TODO 9.2 Sets
 print("=" * 10, "Section 9.2 sets", "=" * 10)
@@ -52,6 +55,7 @@ print("=" * 10, "Section 9.2 sets", "=" * 10)
 my_set = set()
 # 2) Create a set named days that contains the names of the days of the week
 days = set(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+
 # 3) Get the number of elements from the days set and print it
 print(len(days))
 # 4) Remove Saturday and Sunday from the days set
