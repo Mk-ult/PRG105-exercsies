@@ -11,8 +11,9 @@
 print("=" * 10, "Section 11.1 inheritance", "=" * 10)
 # You are going to create a Dwelling class based on the
 # Automobile sample from the chapter
-
 # 1) Create the class Dwelling, the __init__ method should accept number_of_rooms, square_feet, floors
+# 2) Add mutators for all of the data attributes (number_of_rooms, square_feet, floors)
+# 3) Add accessors for all of the data attributes
 
 
 class Dwelling:
@@ -21,7 +22,6 @@ class Dwelling:
         self.__square_feet = square_feet
         self.__floors = floors
 
-# 2) Add mutators for all of the data attributes (number_of_rooms, square_feet, floors)
     def set_number_of_rooms(self, number_of_rooms):
         self.__number_of_rooms = number_of_rooms
 
@@ -31,7 +31,6 @@ class Dwelling:
     def set_floors(self, floors):
         self.__floors = floors
 
-# 3) Add accessors for all of the data attributes
     def get_number_of_rooms(self):
         return self.__number_of_rooms
 
@@ -43,12 +42,18 @@ class Dwelling:
 
 
 # 4) Create the class SingleFamilyHome as a sub-class of Dwelling
+# The __init__ method should accept number_of_rooms, square_feet, floors, garage_type, yard_size
+# -- Call the __init__ of superclass Dwelling and pass the required arguments, remember to include self
+# -- Initialize the garage_type and yard_size attributes
+# 5) Create the mutator and accessor methods for the garage_type and yard_size attributes
+
+
 class SingleFamilyHome(Dwelling):
-    # The __init__ method should accept number_of_rooms, square_feet, floors, garage_type, yard_size
+
     def __init__(self, number_of_rooms, square_feet, floors, garage_type, yard_size):
+        Dwelling.__init__(self, number_of_rooms, square_feet, floors)
         self.__garage_type = garage_type
         self.__yard_size = yard_size
-        Dwelling.__init__(self, number_of_rooms, square_feet, floors)
 
     def set_garage_type(self, garage_type):
         self.__garage_type = garage_type
@@ -62,10 +67,14 @@ class SingleFamilyHome(Dwelling):
     def get_yard_size(self):
         return self.__yard_size
 
+# Demonstrate the SingleFamilyHome class, no need to import because you are in the same file
+# 6) Create a main function.
+# 7) In main, create an object from the Single_family_home class with the following information:
+#            6 rooms, 1200 square feet, 1 floor, single car garage, .25 acres
+# 8) Display the data using the accessor methods
+
 
 def main():
-    # 7) In main, create an object from the Single_family_home class with the following information:
-    #            6 rooms, 1200 square feet, 1 floor, single car garage, .25 acres
 
     single_fam_home = SingleFamilyHome(6, 1200, 1, "single car garage", .25)
     print(f"Single Family Home:")
@@ -74,7 +83,6 @@ def main():
     print(f"{single_fam_home.get_floors()} floor")
     print(f"{single_fam_home.get_garage_type()}")
     print(f"{single_fam_home.get_yard_size()} acres")
-# 8) Display the data using the accessor methods
 
 
 main()
@@ -94,33 +102,41 @@ class Mammal:
 
     def make_sound(self):
         print("Grrrrrr")
-# 2) Create a Mouse class as a sub-class of the mammal class following the Dog example
 
 
 class Mouse(Mammal):
+
     def __init__(self):
         Mammal.__init__(self, "Mouse")
 
     def make_sound(self):
         print("Squeak")
-# 3) Create a Sheep class as a sub-class of the mammal class following the Cat Example
 
 
 class Sheep(Mammal):
-    def __init__(self, species):
+    def __init__(self):
         Mammal.__init__(self, "Sheep")
 
     def make_sound(self):
         print("Baa")
+
+
 # 4) Follow the example in program 11-10 (no need to import, use main2 instead of main
 #    because there is already a main on this page) use the Mouse and Sheep class that you created
 
 
 def main2():
-    mammal_list = [Mammal("Regular Mammal"), Mouse(), Sheep("Sheep")]
-    for item in mammal_list:
-        item.show_species()
-        item.make_sound()
+    mammal = Mammal("Regular animal")
+    squeaky = Mouse()
+    lamb = Sheep()
+    show_mammal_info(mammal)
+    show_mammal_info(squeaky)
+    show_mammal_info(lamb)
+
+
+def show_mammal_info(creature):
+    creature.show_species()
+    creature.make_sound()
 
 
 main2()
