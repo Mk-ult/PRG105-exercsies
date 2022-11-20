@@ -7,50 +7,44 @@
 # Store the data in the object and then use the object’s accessor methods to retrieve it and display it on the screen.
 
 class Employee:
-    def __init__(self, name, number):
-        self.__name = name
-        self.__number = number
+    def __init__(self, employee_name, employee_number):
+        self.__employee_name = employee_name
+        self.__employee_number = employee_number
 
-    def set_name(self, name):
-        self.__name = name
+    def set_name(self, employee_name):
+        self.__employee_name = employee_name
 
-    def set_number(self, number):
-        self.__number = number
+    def set_number(self, employee_number):
+        self.__employee_number = employee_number
 
     def get_name(self):
-        return self.__name
+        return self.__employee_name
 
     def get_number(self):
-        return self.__number
+        return self.__employee_number
     
     def __str__():
-        return f"Name: {self.__name} Number: {self.__number}"
+        return "\nEmployee Name: " + self.__employee_name + "\nEmployee Number: " + self.__employee_number
     
 class ProductionWorker(Employee):
-    def __init__(self, name, number, shift, pay):
-        Employee.__init__(self, name, number)
+    def __init__(self, employee_name, employee_number, shift, pay_rate):
+        Employee.__init__(self, employee_name, employee_number)
+        
         self.__shift = shift
-        self.__pay = pay
+        self.__pay_rate = pay_rate
 
     def set_shift(self, shift):
         self.__shift = shift
-        
-        if shift == "1":
-            shift = "Day"
-        elif shift == "2":
-            shift = "Night"
-        else:
-            shift = "Unassigned"
 
-    def set_pay(self, pay):
-        self.__pay = pay
+    def set_pay(self, pay_rate):
+        self.__pay_rate = pay_rate
 
     def get_shift(self):
         return self.__shift
 
     def get_pay(self):
-        return self.__pay
+        return self.__pay_rate
     
     def __str__():
-        return f"Name: {self.__name} Number: {self.__number} Shift: {self.__shift} Pay: {self.__pay}"
+        return "\nEmployee Name: " + self.__employee_name + "\nEmployee Number: " + self.__employee_number + "\nShift: " + self.__shift + "\nPay Rate: " + self.__pay_rate
     

@@ -15,6 +15,7 @@ def main():
     number = input("Enter ID number: ")
     shift = input("Enter shift (1=day, 2=night, 0=unassigned): ")
     pay = input("Hourly Pay Rate: ")
+    print()
     
     worker = classes.ProductionWorker(name, number, shift, pay)
     
