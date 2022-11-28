@@ -5,54 +5,45 @@ class MPG:
         #create the main window
         self.main_window = tkinter.Tk()
 
-        #Create 4 frames to be packed on top of each other in the window
-        self.gallons_frame = tkinter.Frame(self.main_window)
-        self.miles_frame = tkinter.Frame(self.main_window)
-        self.answer_frame = tkinter.Frame(self.main_window)
-        self.button_frame = tkinter.Frame(self.main_window)
-
-        #Create and pack the label and entry widgets for gallons
-        self.gallons_label = tkinter.Label(self.gallons_frame, text = "Enter Gallons:")
-        self.gallons_entry = tkinter.Entry(self.gallons_frame, width=10)
-        self.gallons_label.pack(side="left")
-        self.gallons_entry.pack(side="left")
-
-        #Create and pack the label and entry widgets for miles
-        self.miles_label = tkinter.Label(self.miles_frame, text = "Enter Miles:")
-        self.miles_entry = tkinter.Entry(self.miles_frame, width=10)
-        self.miles_label.pack(side="left")
-        self.miles_entry.pack(side="left")
-
-
-        #Create and pack the widgets for answer
-        self.result_label = tkinter.Label(self.answer_frame, text='MPG:')
-        self.answer = tkinter.StringVar()
-        self.answer_label = tkinter.Label(self.answer_frame, textvariable=self.answer)
-        self.result_label.pack(side='left')
-        self.answer_label.pack(side='left')
-
-        #Create and pack the button widgets.
-        self.calc_button = tkinter.Button(self.button_frame, text='Calculate', command=self.calc_mpg)
-        self.quit_button = tkinter.Button(self.button_frame, text='Quit', command=self.main_window.destroy)
+        self.top_frame = tkinter.Frame()
+        self.middle_frame = tkinter.Frame()
+        self.bottom_frame = tkinter.Frame()
         
-        self.calc_button.pack(side='left')
-        self.quit_button.pack(side='left')
-
-        #Pack the frames
-        self.gallons_frame.pack()
-        self.miles_frame.pack()
-        self.answer_frame.pack()
-        self.button_frame.pack()
-    
-
+        #top Frame
+        self.prompt_gallons = tkinter.Label(self.top_frame, text="How many gallons does your car hold: ")
+        self.gallons_entry = tkinter.Entry(self.top_frame, width=15)
+        self.prompt_gallons.pack(side="left")
+        self.gallons_entry.pack(side="left")
+        
+        #middle Frame
+        self.miles_prompt = tkinter.Label(self.middle_frame, text="How many miles did you travel: ")
+        self.miles_entry = tkinter.Entry(self.middle_frame, width=15)
+        self.miles_prompt.pack(side="left")
+        self.miles_entry.pack(side="left")
+        
+        #bottom frame
+        self.value = tkinter.StringVar()
+        self.results_label = tkinter.Label(self.bottom_frame, textvariable=self.value)
+        self.calc_button = tkinter.Button(self.bottom_frame, text="Calculate", command=self.calc_mpg)
+        self.quit_button = tkinter.Button(self.bottom_frame, text="Quit", command=self.main_window.destroy)
+        
+        self.results_label.pack(side="top")
+        self.calc_button.pack(side="left")
+        self.quit_button.pack(side="left")
+        
+        self.top_frame.pack()
+        self.middle_frame.pack()
+        self.bottom_frame.pack()
+        
         #Start the main loop
         tkinter.mainloop()
     
     def calc_mpg(self):
-        gallons = float(self.gallons_entry.get())
+        gas = float(self.gallons_entry.get())
         miles = float(self.miles_entry.get())
-        mpg = miles/gallons
-        self.answer.set(self.mpg)
+        
+        mpg = f"you get " + format(miles/gas, ".2f") + "miles per gallon"
+        self.value.set(mpg)
     
     
-my_mpg = MPG()
+car = MPG()
